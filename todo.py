@@ -3,11 +3,11 @@ def login():
     fileName = name+'.txt'
     f = open('fileName','r')
     print(f.read())
-    print('''1: Add new task\n2: Delete task\n3: Exit\n''')
+    print('''\n1: Add new task\n2: Delete task\n3: Exit\n''')
     select = int(input("Choose: "))
     match select:
         case 1:
-            addTask()
+            addTask(fileName)
         case 2:
             deleteTask()
         case 3:
@@ -23,8 +23,14 @@ def CreateUser():
     print('User created!')
     login()
 
-def addTask():
-    pass
+def addTask(fileName):
+    f = open('filename','a')
+    task = input('Enter task: ')
+    time = input('Enter time: ')
+    f.write(f'\nTask: {task}\t Time: {time}')
+    f = open('filename','r')
+    print(f.read())
+
 def deleteTask():
     pass
 def deleteUser():

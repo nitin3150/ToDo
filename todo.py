@@ -1,15 +1,41 @@
 def login():
-    pass
+    name = input("Enter username to login: ")
+    fileName = name+'.txt'
+    f = open('fileName','r')
+    print(f.read())
+    print('''1: Add new task\n2: Delete task\n3: Exit\n''')
+    select = int(input("Choose: "))
+    match select:
+        case 1:
+            addTask()
+        case 2:
+            deleteTask()
+        case 3:
+            exit()
+        case _:
+            print("Choose correct option")
+
 def CreateUser():
+    name = input("Enter username: ")
+    fileName = name+'.txt'
+    f = open('fileName','w')
+    f.write('This is a ToDo list for '+name)
+    print('User created!')
+    login()
+
+def addTask():
+    pass
+def deleteTask():
     pass
 def deleteUser():
     pass
+
 def printOptions():
     print('''1: Create new user\n2: Existing User\n3: Exit''')
 
 printOptions()
 
-match int(input("Choose")):
+match int(input("Choose: ")):
     case 1:
         CreateUser()
     case 2:

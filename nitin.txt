@@ -1,0 +1,4 @@
+This is a ToDo list for nitin
+Task: gym	 Time: 6 AM
+Task: college	 Time: 8 AM
+Task: lunch	 Time: 2 PM

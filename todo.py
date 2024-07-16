@@ -15,14 +15,18 @@ def login():
 def CreateUser():
     name = input("Enter username: ")
     fileName = name+'.txt'
-    f = open(fileName,'w')
-    f.write('This is a ToDo list for '+name)
-    print('User created!')
-    login()
+    try:
+        with open(fileName,'x') as file:
+            file.write('This is a ToDo list for '+name)
+            print('User created!')
+            login()
+    except IOError:
+        print("User already exist")
+        CreateUser()
 
 def taskOptions(fileName):
     with open(fileName, 'r') as file:
-        print('''\n1: Add new task\n2: Delete task\n3: Change Username\n 4: Exit\n''')
+        print('''\n1: Add new task\n2: Delete task\n3: Change Username\n4: Exit\n''')
         select = int(input("Choose: "))
         match select:
             case 1:

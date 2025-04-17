@@ -8,3 +8,5 @@ class UserCreate(BaseModel):
 class CreateTask(BaseModel):
     description: str
     priority: int
+    user_id: int
+    id : int

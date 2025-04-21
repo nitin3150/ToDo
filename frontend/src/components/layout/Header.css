@@ -1,0 +1,68 @@
+.app-header {
+    background-color: var(--color-primary);
+    color: white;
+    height: var(--header-height);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .header-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .app-logo {
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .app-logo:hover {
+    text-decoration: none;
+  }
+  
+  .user-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  
+  .username {
+    font-weight: 500;
+  }
+  
+  .logout-button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+  }
+  
+  .logout-button:hover {
+    background-color: white;
+    color: var(--color-primary);
+  }
+  
+  .auth-links {
+    display: flex;
+    gap: var(--spacing-lg);
+  }
+  
+  .auth-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity var(--transition-fast);
+  }
+  
+  .auth-link:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }  

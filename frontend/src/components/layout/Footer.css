@@ -1,0 +1,15 @@
+.app-footer {
+    background-color: var(--color-gray-100);
+    border-top: 1px solid var(--color-gray-200);
+    padding: var(--spacing-md) 0;
+    height: var(--footer-height);
+  }
+  
+  .footer-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+  }  

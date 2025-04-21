@@ -5,6 +5,7 @@ from fastapi import Depends, APIRouter
 from db.database import get_db
 from db.models import User
 from fastapi.params import Body
+from schema.schema import UserLogin
 
 router = APIRouter(
     prefix = "/user",
@@ -18,5 +19,5 @@ async def new_user(user: dict = Body(...), db: Session = Depends(get_db)):
 
 
 @router.post('/login')
-async def test(user_credential: dict = Body(...), db : Session = Depends(get_db)):
+async def test(user_credential: UserLogin, db : Session = Depends(get_db)):
     return user_login(user_credential,db)

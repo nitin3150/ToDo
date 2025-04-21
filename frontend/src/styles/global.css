@@ -1,0 +1,123 @@
+@import './variables.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: var(--spacing-lg);
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+}
+
+/* Component CSS files */
+
+/* src/components/layout/Header.css */
+.app-header {
+  background-color: var(--color-primary);
+  color: white;
+  height: var(--header-height);
+  box-shadow: var(--shadow-md);
+}
+
+.header-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-logo {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.app-logo:hover {
+  text-decoration: none;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.username {
+  font-weight: 500;
+}
+
+.logout-button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.logout-button:hover {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.auth-links {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.auth-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity var(--transition-fast);
+}
+
+.auth-link:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}

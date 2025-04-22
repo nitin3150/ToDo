@@ -5,6 +5,7 @@ from db.database import get_db
 from db.models import Task
 from schema.schema import CreateTask
 from services.remove_task import delete_task
+from utils.auth import get_current_user
 
 router = APIRouter(
     prefix = "/tasks",
@@ -12,12 +13,12 @@ router = APIRouter(
 )
 
 @router.post('/')
-async def new_task(task: CreateTask, db: Session = Depends(get_db)):
-    return create_task(task,db)
+async def new_task(task: CreateTask, db: Session = Depends(get_db), current_user: int = Depends(get_current_user)):
+    return create_task(task,db,current_user)
 
-@router.get('/{id}')
-async def test(id: int, db : Session = Depends(get_db)):
-    tasks = db.query(Task).filter(Task.user_id == id).all()
+@router.get('/gettask')
+async def get_task(current_user: int = Depends(get_current_user), db : Session = Depends(get_db)):
+    tasks = db.query(Task).filter(Task.user_id == current_user.id).all()
     return {"Data": tasks}
 
 @router.get('/delete/{id}')

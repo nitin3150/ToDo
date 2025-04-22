@@ -6,6 +6,7 @@ from db.database import get_db
 from db.models import User
 from fastapi.params import Body
 from schema.schema import UserLogin
+from fastapi.security import OAuth2PasswordRequestForm
 
 router = APIRouter(
     prefix = "/user",
@@ -19,5 +20,5 @@ async def new_user(user: dict = Body(...), db: Session = Depends(get_db)):
 
 
 @router.post('/login')
-async def test(user_credential: UserLogin, db : Session = Depends(get_db)):
-    return user_login(user_credential,db)
+async def test(user_credential: OAuth2PasswordRequestForm = Depends(), db : Session = Depends(get_db)):
+    return user_login(db, user_credential)

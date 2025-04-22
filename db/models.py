@@ -13,8 +13,8 @@ class User(Base):
 class Task(Base):
     __tablename__ = 'tasks'
 
-    id = Column(Integer, index=True, primary_key=True)
+    id = Column(Integer, index=True, primary_key=True, autoincrement=True)
     description = Column(String,nullable=False)
-    user_id = Column(Integer,ForeignKey('users.id'), primary_key=True)
+    user_id = Column(Integer,ForeignKey('users.id'))
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     priority = Column(Integer, nullable = False)

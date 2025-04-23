@@ -9,9 +9,10 @@ import './AuthForms.css';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    name: '',
+    email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword:''
   });
   const [validationError, setValidationError] = useState('');
   const { register, loading, error } = useAuth();
@@ -42,11 +43,11 @@ const RegisterForm = () => {
     
     if (!validateForm()) return;
     
-    const { username, password } = formData;
-    const success = await register({ username, password });
+    const { name, email, password } = formData;
+    const success = await register({ name,email, password });
     
     if (success) {
-      navigate('/todos');
+      navigate('/tasks/gettask');
     }
   };
 
@@ -62,13 +63,23 @@ const RegisterForm = () => {
         <Input
           label="Username"
           type="text"
-          name="username"
-          value={formData.username}
+          name="name"
+          value={formData.name}
           onChange={handleChange}
           required
           fullWidth
         />
         
+        <Input
+          label="E-mail"
+          type="text"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          fullWidth
+        />
+
         <Input
           label="Password"
           type="password"

@@ -16,13 +16,13 @@ function App() {
       <AuthProvider>
         <TodoProvider>
           <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/" element={<Navigate to="/todos" replace />} />
+            <Route path="/user/login" element={<LoginPage />} />
+            <Route path="/user" element={<RegisterPage />} />
+            <Route path="/tasks" element={<Navigate to="/gettask" replace />} />
             
             <Route element={<PrivateRoute />}>
               <Route element={<MainLayout />}>
-                <Route path="/todos" element={<TodosPage />} />
+                <Route path="/tasks/gettask" element={<TodosPage />} />
               </Route>
             </Route>
             

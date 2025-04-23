@@ -2,6 +2,7 @@
 import React, { createContext, useState, useEffect, useContext, useCallback } from 'react';
 import { AuthContext } from './AuthContext';
 import { fetchTodos, createTodo, updateTodo, deleteTodo } from '../services/todoService';
+import { useNavigate } from 'react-router-dom';
 
 export const TodoContext = createContext();
 
@@ -15,9 +16,12 @@ export const TodoProvider = ({ children }) => {
     priority: 'all', // all, high (8-10), medium (4-7), low (1-3)
     search: ''
   });
-
+  const navigate = useNavigate();
   const loadTodos = useCallback(async () => {
-    if (!token) return;
+    if (!token){
+      navigate('/user/login');
+      // return;
+    }
     
     setLoading(true);
     setError('');

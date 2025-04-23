@@ -9,7 +9,7 @@ import './AuthForms.css';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: ''
   });
   const { login, loading, error } = useAuth();
@@ -22,7 +22,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("Sending to backend:", formData);
+    console.log("Sending to backend:", formData);
     const success = await login(formData);
     if (success) {
       navigate('/login');
@@ -39,8 +39,8 @@ const LoginForm = () => {
         <Input
           label="Email"
           type="text"
-          name="email"
-          value={formData.email}
+          name="username"
+          value={formData.username}
           onChange={handleChange}
           required
           fullWidth
@@ -69,7 +69,7 @@ const LoginForm = () => {
       <div className="auth-footer">
         <p>
           Don't have an account?{' '}
-          <Link to="/register" className="auth-link">Register</Link>
+          <Link to="/user" className="auth-link">Register</Link>
         </p>
       </div>
     </Card>

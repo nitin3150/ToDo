@@ -21,4 +21,5 @@ async def new_user(user: dict = Body(...), db: Session = Depends(get_db)):
 
 @router.post('/login')
 async def test(user_credential: OAuth2PasswordRequestForm = Depends(), db : Session = Depends(get_db)):
+    # print(user_credential)
     return user_login(db, user_credential)

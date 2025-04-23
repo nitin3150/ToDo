@@ -18,11 +18,11 @@
   .auth-footer {
     margin-top: var(--spacing-lg);
     text-align: center;
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     font-size: var(--font-size-sm);
   }
   
   .auth-link {
-    color: var(--color-primary);
+    color: blue;
     font-weight: 500;
   }

@@ -27,7 +27,7 @@ export const TodoProvider = ({ children }) => {
     setError('');
     try {
       const data = await fetchTodos(token);
-      setTodos(data);
+      setTodos(data.Data);
     } catch (err) {
       setError('Failed to load todos: ' + (err.message || 'Unknown error'));
     } finally {

@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         try {
           const userData = await getCurrentUser(token);
+          console.log(userData)
           setCurrentUser(userData);
         } catch (err) {
           console.error('Failed to get user data:', err);
@@ -28,7 +29,6 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
   const login = async (credentials) => {
-    // console.log("Sending credentials to FastAPI:", credentials);
     setLoading(true);
     setError('');
     try {
@@ -36,6 +36,7 @@ export const AuthProvider = ({ children }) => {
       setCurrentUser(user);
       setToken(token);
       localStorage.setItem('token', token);
+
       return true;
     } catch (err) {
       setError(err.message || 'Login failed');
@@ -81,4 +82,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};
+
+export const useAuth = () => {
+  const context = React.useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
 };

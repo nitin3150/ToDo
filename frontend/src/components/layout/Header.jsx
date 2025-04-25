@@ -2,10 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import './Header.css';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { currentUser, logout, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
+  console.log(currentUser)
+
+  const handleLogout = () => {
+    logout(); // from context
+    navigate('/user/login'); // redirect handled here
+  };
   return (
     <header className="app-header">
       <div className="header-container">
@@ -16,7 +24,7 @@ const Header = () => {
         {isAuthenticated ? (
           <div className="user-menu">
             <span className="username">Hi, {currentUser?.username}</span>
-            <button onClick={logout} className="logout-button">
+            <button onClick={handleLogout} className="logout-button">
               Logout
             </button>
           </div>

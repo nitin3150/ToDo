@@ -8,7 +8,7 @@ const TodoItem = ({ todo }) => {
   const { toggleComplete, updateTodo, deleteTodo } = useTodos();
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState({
-    title: todo.title,
+    description: todo.description,
     priority: todo.priority
   });
 
@@ -29,7 +29,7 @@ const TodoItem = ({ todo }) => {
   const handleCancel = () => {
     setIsEditing(false);
     setEditData({
-      title: todo.title,
+      description: todo.description,
       priority: todo.priority
     });
   };
@@ -62,7 +62,7 @@ const TodoItem = ({ todo }) => {
           <input
             type="text"
             name="title"
-            value={editData.title}
+            value={editData.description}
             onChange={handleChange}
             className="edit-input"
             autoFocus
@@ -97,7 +97,7 @@ const TodoItem = ({ todo }) => {
             />
             
             <div className="todo-text">
-              <span className="todo-title">{todo.title}</span>
+              <span className="todo-title">{todo.description}</span>
               <span className="todo-priority">Priority: {todo.priority}</span>
             </div>
           </div>

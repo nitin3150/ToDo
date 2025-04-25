@@ -22,10 +22,10 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Sending to backend:", formData);
+    // console.log("Sending to backend:", formData);
     const success = await login(formData);
     if (success) {
-      navigate('/login');
+      navigate('/tasks/gettask');
     }
   };
 
@@ -75,5 +75,7 @@ const LoginForm = () => {
     </Card>
   );
 };
+
+
 
 export default LoginForm;

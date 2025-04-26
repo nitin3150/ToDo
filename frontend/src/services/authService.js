@@ -5,7 +5,7 @@ export const loginUser = async ({ username, password }) => {
   formData.append('username', username);
   formData.append('password', password);
   
-  const data = await apiRequest('user/login', {
+  const data = await apiRequest('/user/login', {
     method: 'POST',
     body: formData
   });
@@ -34,12 +34,20 @@ export const logoutUser = () => {
 };
 
 export const getCurrentUser = async (token) => {
-  // You could add an endpoint to fetch current user data if needed
-  // For now, we'll just return the username from the token payload
+  if (!token) {
+    throw new Error('No token provided');
+  }
+  
   try {
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    return { username: payload.sub };
+    const parts = token.split('.');
+    if (parts.length !== 3) {
+      throw new Error('Invalid token format');
+    }
+    
+    const payload = JSON.parse(atob(parts[1]));
+    return { username: payload.user_id };
   } catch (error) {
+    console.error('Failed to decode token:', error);
     throw new Error('Invalid token');
   }
 };

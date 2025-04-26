@@ -62,6 +62,7 @@ export const TodoProvider = ({ children }) => {
     setLoading(true);
     setError('');
     try {
+      // console.log(updates)
       const updatedTodo = await updateTodo(id, updates, token);
       setTodos(todos.map(todo => 
         todo.id === id ? { ...todo, ...updatedTodo } : todo
@@ -80,7 +81,8 @@ export const TodoProvider = ({ children }) => {
     setError('');
     try {
       await deleteTodo(id, token);
-      setTodos(todos.filter(todo => todo.id !== id));
+      // setTodos(todos.filter(todo => todo.id !== id));
+      setTodos(prev => prev.filter(todo => todo.id !== id));
       return true;
     } catch (err) {
       setError('Failed to delete todo: ' + (err.message || 'Unknown error'));

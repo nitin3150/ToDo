@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         try {
           const userData = await getCurrentUser(token);
-          console.log(userData)
+          // console.log(userData)
           setCurrentUser(userData);
         } catch (err) {
           console.error('Failed to get user data:', err);

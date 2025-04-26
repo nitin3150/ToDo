@@ -8,11 +8,11 @@ const Header = () => {
   const { currentUser, logout, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  console.log(currentUser)
-
   const handleLogout = () => {
     logout(); // from context
-    navigate('/user/login'); // redirect handled here
+    setTimeout(() => {
+      navigate('/user/login');
+    }, 0); 
   };
   return (
     <header className="app-header">
@@ -30,8 +30,8 @@ const Header = () => {
           </div>
         ) : (
           <div className="auth-links">
-            <Link to="/login" className="auth-link">Login</Link>
-            <Link to="/register" className="auth-link">Register</Link>
+            <Link to="/user/login" className="auth-link">Login</Link>
+            <Link to="/user" className="auth-link">Register</Link>
           </div>
         )}
       </div>

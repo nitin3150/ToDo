@@ -47,8 +47,12 @@ const RegisterForm = () => {
     const success = await register({ name,email, password });
     
     if (success) {
-      navigate('/tasks/gettask');
+      // navigate('/tasks/gettask');
+      setTimeout(() => {
+        navigate('/tasks/gettask');
+      }, 1000);
     }
+    
   };
 
   return (
@@ -113,7 +117,7 @@ const RegisterForm = () => {
       <div className="auth-footer">
         <p>
           Already have an account?{' '}
-          <Link to="/login" className="auth-link">Login</Link>
+          <Link to="/tasks/gettask" className="auth-link">Login</Link>
         </p>
       </div>
     </Card>

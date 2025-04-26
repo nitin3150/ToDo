@@ -9,7 +9,8 @@ export const fetchTodos = async (token) => {
 };
 
 export const createTodo = async (todoData, token) => {
-  return apiRequest('/todos', {
+  // console.log(todoData)
+  return apiRequest('/tasks', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -20,7 +21,8 @@ export const createTodo = async (todoData, token) => {
 };
 
 export const updateTodo = async (id, updates, token) => {
-  return apiRequest(`/todos/${id}`, {
+  // console.log(updates)
+  return apiRequest(`/tasks/update/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -31,7 +33,7 @@ export const updateTodo = async (id, updates, token) => {
 };
 
 export const deleteTodo = async (id, token) => {
-  return apiRequest(`/todos/${id}`, {
+  return apiRequest(`/tasks/delete/${id}`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${token}`

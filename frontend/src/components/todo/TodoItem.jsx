@@ -61,7 +61,7 @@ const TodoItem = ({ todo }) => {
         <form onSubmit={handleSubmit} className="edit-form">
           <input
             type="text"
-            name="title"
+            name="description"
             value={editData.description}
             onChange={handleChange}
             className="edit-input"
@@ -94,6 +94,7 @@ const TodoItem = ({ todo }) => {
               checked={todo.completed}
               onChange={handleToggleComplete}
               className="todo-checkbox"
+              value={false ?? ''}
             />
             
             <div className="todo-text">

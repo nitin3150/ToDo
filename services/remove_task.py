@@ -6,8 +6,8 @@ def delete_task(id,db):
     task = db.query(Task).filter(Task.id == id)
 
     if task.first() is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Task not found")
+        raise HTTPException(status_code=status.HTTP_204_NO_CONTENT, detail="Task not found")
     
     task.delete(synchronize_session=False)
     db.commit()
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
+    return {"Detail": "Deleted"}

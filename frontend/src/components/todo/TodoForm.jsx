@@ -7,7 +7,7 @@ import './TodoForm.css';
 const TodoForm = () => {
   const { addTodo, loading } = useTodos();
   const [newTodo, setNewTodo] = useState({
-    title: '',
+    description: '',
     priority: 5
   });
 
@@ -23,7 +23,7 @@ const TodoForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!newTodo.title.trim()) return;
+    if (!newTodo.description.trim()) return;
     
     await addTodo({
       ...newTodo,
@@ -31,7 +31,7 @@ const TodoForm = () => {
     });
     
     setNewTodo({
-      title: '',
+      description: '',
       priority: 5
     });
   };
@@ -41,8 +41,8 @@ const TodoForm = () => {
       <div className="form-row">
         <input
           type="text"
-          name="title"
-          value={newTodo.title}
+          name="description"
+          value={newTodo.description}
           onChange={handleChange}
           placeholder="Add a new task..."
           className="todo-input"
@@ -62,7 +62,7 @@ const TodoForm = () => {
         <Button
           type="submit"
           variant="primary"
-          disabled={loading || !newTodo.title.trim()}
+          disabled={loading || !newTodo.description.trim()}
         >
           {loading ? 'Adding...' : 'Add Task'}
         </Button>

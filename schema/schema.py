@@ -10,6 +10,7 @@ class CreateTask(BaseModel):
     description: str
     priority: int
     user_id: int = None
+    completed: bool = None
 
 class UserLogin(BaseModel):
     email: EmailStr
@@ -21,3 +22,9 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     id: int = None
+
+class UpdateTask(BaseModel):
+    description: str = None
+    priority: int = None
+    user_id: int = None
+    completed: bool = None
